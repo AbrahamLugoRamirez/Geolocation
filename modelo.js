@@ -2,7 +2,7 @@
 function comenzar(){
 	var miboton = document.getElementById("dame_ubicacion");
 	miboton.addEventListener("click", obtener, false);
-	innerHTML="HOla"
+
 }
 
 function obtener(){
@@ -11,9 +11,32 @@ function obtener(){
 
 function mostrar_posicion(posicion){
 	var ubicacion = document.getElementById("ubicacion");
-	var latitud = "latitud: " + posicion.coords.latitude;
-	ubicacion.innerHTML=latitud;
+	var miubicacion="";
+	miubicacion+="latitud: " + posicion.coords.latitude + "<br>";
+	miubicacion+="Longuitud: " + posicion.coords.longitude + "<br>";
+	miubicacion+="Exactitud: " + posicion.coords.accuracy + "<br>";
+
+	ubicacion.innerHTML=miubicacion;
+
+lat=posicion.coords.latitude;
+long = posicion.coords.longitude;
+
+	iniciarMap(lat,long);
 
 }
+
+
+function iniciarMap(latt, longg){
+    var coord = {lat:latt ,lng: long};
+    var map = new google.maps.Map(document.getElementById('map'),{
+      zoom:100,
+      center: coord
+    });
+    var marker = new google.maps.Marker({
+      position: coord,
+      map: map
+    });
+}
+
 
 window.addEventListener("load",comenzar,false);
