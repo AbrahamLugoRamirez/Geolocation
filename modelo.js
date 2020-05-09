@@ -2,7 +2,6 @@
 function comenzar(){
 	var miboton = document.getElementById("dame_ubicacion");
 	miboton.addEventListener("click", obtener, false);
-
 }
 
 function obtener(){
