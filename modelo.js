@@ -20,16 +20,12 @@ function mostrar_posicion(posicion){
 
 lat=posicion.coords.latitude;
 long = posicion.coords.longitude;
-
 	iniciarMap(lat,long);
-
 }
-
-
-function iniciarMap(latt, longg){
-    var coord = {lat:latt ,lng: long};
+function iniciarMap(latt,longg){
+    var coord = {lat:latt ,lng:longg};
     var map = new google.maps.Map(document.getElementById('map'),{
-      zoom:100,
+      zoom:16,
       center: coord
     });
     var marker = new google.maps.Marker({
@@ -37,6 +33,4 @@ function iniciarMap(latt, longg){
       map: map
     });
 }
-
-
 window.addEventListener("load",comenzar,false);
